@@ -1,0 +1,37 @@
+
+const listaDeContactos = [
+  { nombreApellido: "Juan Pérez" },
+  { nombreApellido: "María López" },
+  { nombreApellido: "Carlos Sánchez" }
+];
+
+
+function agregarContacto(nombreApellido) {
+  listaDeContactos.push({ nombreApellido });
+  console.log(`Contacto ${nombreApellido} añadido.`);
+}
+
+
+function borrarContacto(nombreApellido) {
+  const indice = listaDeContactos.findIndex(contacto => contacto.nombreApellido === nombreApellido);
+
+  if (indice !== -1) {
+    listaDeContactos.splice(indice, 1);
+    console.log(`Contacto ${nombreApellido} eliminado.`);
+  } else {
+    console.log(`El contacto ${nombreApellido} no existe en la lista.`);
+  }
+}
+
+
+function imprimirContactos() {
+  console.log("Lista de contactos:");
+  listaDeContactos.forEach(contacto => {
+    console.log(contacto.nombreApellido);
+  });
+}
+
+
+agregarContacto("Ana Gómez");
+borrarContacto("María López");
+imprimirContactos();
